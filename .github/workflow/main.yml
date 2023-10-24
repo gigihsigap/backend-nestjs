@@ -1,0 +1,20 @@
+name: CICD Docker
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: List of files
+        run: ls -la
+      - uses: pnpm/action-setup@v2
+      - name: Install pnpm
+        with:
+          version: 8
+      - uses: actions/checkout@v3
+      - name: Run unit test
+        run: pnpm test

@@ -15,5 +15,7 @@ jobs:
         with:
           version: 8
       - uses: actions/checkout@v3
+      - name: Run pnpm install
+        run: pnpm install
       - name: Run unit test
         run: pnpm test
